@@ -1,12 +1,26 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import React, { useState } from "react";
 import "./App.css";
+import Viewer from "./components/Viewer";
+import Controller from "./components/Controller";
 
 function App() {
   const [count, setCount] = useState(0);
 
-  return <div></div>;
+  const onButtonClick = (value) => {
+    setCount(count + value);
+  };
+
+  return (
+    <div className="App">
+      <h1>Counter</h1>
+      <section>
+        <Viewer count={count} />
+      </section>
+      <section>
+        <Controller onButtonClick={onButtonClick} />
+      </section>
+    </div>
+  );
 }
 
 export default App;
